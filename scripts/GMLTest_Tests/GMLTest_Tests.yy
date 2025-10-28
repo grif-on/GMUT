@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"GMLTest_Tests",
   "parent":{
-    "name":"GMLTest",
-    "path":"folders/GMLTest.yy",
+    "name":"GMUT",
+    "path":"folders/GMUT.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

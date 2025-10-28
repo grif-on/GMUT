@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"FixtureTests",
   "parent":{
-    "name":"Sample Unit Tests",
-    "path":"folders/Sample Unit Tests.yy",
+    "name":"Sample unit tests",
+    "path":"folders/Sample unit tests.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

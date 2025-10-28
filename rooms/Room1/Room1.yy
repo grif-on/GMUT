@@ -12,8 +12,8 @@
   ],
   "name":"Room1",
   "parent":{
-    "name":"Supporting Resources",
-    "path":"folders/Supporting Resources.yy",
+    "name":"Supporting resources",
+    "path":"folders/Supporting resources.yy",
   },
   "parentRoom":null,
   "physicsSettings":{
