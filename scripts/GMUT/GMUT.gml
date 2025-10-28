@@ -2,18 +2,20 @@ function GMUT() constructor {
 	
 	STATIC_CLASS
 	
-	show_debug_message("static class init code running ...");
-	
-	static variable = 42;
-	
-	static strings = [
-		"a",
-		"b",
-		"c"
-	];
-	
+	///@description Start running the unit tests
 	static run_tests = function() {
-		show_debug_message("==> " + string(GMUT.variable) + GMUT.strings[1]);
+		global.GMLTestManager.execute();
+	}
+	
+	///@description Sets the seed to a static value or a random value. Can be toggled.
+	///@param {Bool} deterministic Whether to set the seed to a static value or not
+	static set_deterministic = function(deterministic) {
+		if (deterministic){
+			random_set_seed(0);
+		}
+		else{
+			random_set_seed(global.GMLTestManager._seed);
+		}
 	}
 	
 }
