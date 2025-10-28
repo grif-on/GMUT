@@ -1,1 +1,2 @@
-gmltest_start();
+GMUT.run_tests();
+//gmltest_start();
