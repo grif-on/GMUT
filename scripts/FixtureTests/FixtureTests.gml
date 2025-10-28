@@ -1,4 +1,4 @@
-///@description A custom fixture that tests MyObject
+///@description A custom fixture that tests obj_book
 function MyFixture() : GMLTest_Harness() constructor {
 	
 	instance = noone;
@@ -6,7 +6,7 @@ function MyFixture() : GMLTest_Harness() constructor {
 	function setup(){
 		// Before we execute the test let's create the instance we will be testing
 		// This way we don't have to duplicate code everywhere to do our tests
-		instance = instance_create_depth(0,0,0, MyObject);
+		instance = instance_create_depth(0,0,0, obj_book);
 	}
 	
 	function tear_down(){

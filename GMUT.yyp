@@ -22,8 +22,8 @@
   },
   "name":"GMUT",
   "resources":[
-    {"id":{"name":"MyObject","path":"objects/MyObject/MyObject.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"obj_book","path":"objects/obj_book/obj_book.yy",},},
+    {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"FixtureTests","path":"scripts/FixtureTests/FixtureTests.yy",},},
     {"id":{"name":"GMLTest_Helpers","path":"scripts/GMLTest_Helpers/GMLTest_Helpers.yy",},},
     {"id":{"name":"GMLTest_Manager","path":"scripts/GMLTest_Manager/GMLTest_Manager.yy",},},
@@ -36,7 +36,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[
