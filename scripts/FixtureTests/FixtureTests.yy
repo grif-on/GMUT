@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Sample Unit Tests",
-    "path": "folders/Sample Unit Tests.yy",
+  "$GMScript":"",
+  "%Name":"FixtureTests",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FixtureTests",
+  "parent":{
+    "name":"Sample Unit Tests",
+    "path":"folders/Sample Unit Tests.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "FixtureTests",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

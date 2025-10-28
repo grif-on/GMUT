@@ -1,12 +1,13 @@
 {
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "GMLTest",
-    "path": "folders/GMLTest.yy",
+  "$GMScript":"",
+  "%Name":"GMLTest_Tests",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GMLTest_Tests",
+  "parent":{
+    "name":"GMLTest",
+    "path":"folders/GMLTest.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "GMLTest_Tests",
-  "tags": [],
-  "resourceType": "GMScript",
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
