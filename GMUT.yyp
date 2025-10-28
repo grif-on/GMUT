@@ -31,6 +31,7 @@
     {"id":{"name":"GMLTest_Private","path":"scripts/GMLTest_Private/GMLTest_Private.yy",},},
     {"id":{"name":"GMLTest_Tests","path":"scripts/GMLTest_Tests/GMLTest_Tests.yy",},},
     {"id":{"name":"GMUT","path":"scripts/GMUT/GMUT.yy",},},
+    {"id":{"name":"GMUTMacroses","path":"scripts/GMUTMacroses/GMUTMacroses.yy",},},
     {"id":{"name":"ParameterizedTests","path":"scripts/ParameterizedTests/ParameterizedTests.yy",},},
     {"id":{"name":"StandardTests","path":"scripts/StandardTests/StandardTests.yy",},},
   ],

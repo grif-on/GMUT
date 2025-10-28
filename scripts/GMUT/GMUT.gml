@@ -1,10 +1,8 @@
 function GMUT() constructor {
 	
-	static static_init_is_done = false;
-	if (static_init_is_done) {
-		throw("GMUT is a namespace (fully static class), you can't have insatnce of it!");
-	}
-	static_init_is_done = true;
+	STATIC_CLASS
+	
+	show_debug_message("static class init code running ...");
 	
 	static variable = 42;
 	
@@ -20,9 +18,11 @@ function GMUT() constructor {
 	
 }
 
-while (true) {
-	// Unfortunatelly to create class with only static methods/variables we still need to initialise at least one instance of it
-	var _dummy_init = new GMUT();
-	_dummy_init = undefined; // Errase instance, since local variables in gml is local to whole script file and not thier {} :|
-	break;
-}
+STATIC_CLASS_INIT(GMUT);
+
+/*
+GMUT.run_tests();
+show_debug_message("next line should throw an error");
+var _test = new GMUT();
+_test.run_tests();
+*/

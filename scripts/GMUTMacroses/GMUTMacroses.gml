@@ -1,0 +1,2 @@
+#macro STATIC_CLASS { static static_init_is_done = false; if (static_init_is_done) { throw("\n" + string(_GMFILE_) + " is a fully static class, you can't have instatnce of it!"); } static_init_is_done = true; }
+#macro STATIC_CLASS_INIT var _static_class_init_function_reserved_name = function(_class) { while (true) { var _dummy_init_reserved_name = new GMUT(); _dummy_init_reserved_name = undefined; break; } } _static_class_init_function_reserved_name

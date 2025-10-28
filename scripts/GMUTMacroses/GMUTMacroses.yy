@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"GMUTMacroses",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GMUTMacroses",
+  "parent":{
+    "name":"GMUT",
+    "path":"folders/GMUT.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
