@@ -26,7 +26,6 @@
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"FixtureTests","path":"scripts/FixtureTests/FixtureTests.yy",},},
     {"id":{"name":"GMLTest_Manager","path":"scripts/GMLTest_Manager/GMLTest_Manager.yy",},},
-    {"id":{"name":"GMLTest_Matchers","path":"scripts/GMLTest_Matchers/GMLTest_Matchers.yy",},},
     {"id":{"name":"GMLTest_Private","path":"scripts/GMLTest_Private/GMLTest_Private.yy",},},
     {"id":{"name":"GMLTest_Tests","path":"scripts/GMLTest_Tests/GMLTest_Tests.yy",},},
     {"id":{"name":"GMUT","path":"scripts/GMUT/GMUT.yy",},},

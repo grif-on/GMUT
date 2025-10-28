@@ -1,22 +1,82 @@
-function GMUT() constructor {
+ function GMUT() constructor {
 	
 	STATIC_CLASS
 	
-	///@description Start running the unit tests
-	static run_tests = function() {
-		global.GMLTestManager.execute();
-	}
+	#region Framework control
+		
+		///@description Start running the unit tests
+		static run_tests = function() {
+			global.GMLTestManager.execute();
+		}
 	
-	///@description Sets the seed to a static value or a random value. Can be toggled.
-	///@param {Bool} deterministic Whether to set the seed to a static value or not
-	static set_deterministic = function(deterministic) {
-		if (deterministic){
-			random_set_seed(0);
+		///@description Sets the seed to a static value or a random value. Can be toggled.
+		///@param {Bool} deterministic Whether to set the seed to a static value or not
+		static set_deterministic = function(deterministic) {
+			if (deterministic){
+				random_set_seed(0);
+			}
+			else{
+				random_set_seed(global.GMLTestManager._seed);
+			}
 		}
-		else{
-			random_set_seed(global.GMLTestManager._seed);
+		
+	#endregion
+	
+	#region Matchers
+		
+		///@description Expects that the actual value is equal to the expected value
+		///@param {*} expected
+		///@param {*} actual
+		static expect_eq = function(expected, actual) {
+			_gmltest_throw_result(expected, actual, expected == actual);
 		}
-	}
+		
+		///@description Expects that the provided value is false
+		///@param {*} value
+		static expect_false = function(value) {
+			GMUT.expect_eq(false, value);
+		}
+		
+		///@description Expects that the provided value is true
+		///@param {*} value
+		static expect_true = function(value) {
+			GMUT.expect_eq(true, value);
+		}
+		
+		///@description Expects that the actual value is greater than the expected value
+		///@param {*} expected
+		///@param {*} actual
+		static expect_gt = function(expected, actual) {
+			_gmltest_throw_result(expected, actual, expected < actual);
+		}
+		
+		///@description Expects that the actual value is less than the expected value
+		///@param {*} expected
+		///@param {*} actual
+		static expect_lt = function(expected, actual) {
+			_gmltest_throw_result(expected, actual, expected > actual);
+		}
+		
+		///@description Expects that the actual value is not equal to the expected value
+		///@param {*} expected
+		///@param {*} actual
+		static expect_neq = function(expected, actual) {
+			_gmltest_throw_result(expected, actual, expected != actual);
+		}
+		
+		///@description Expects that the provided value is not null
+		///@param {*} value
+		static expect_not_null = function(value) {
+			_gmltest_throw_result("not null", value, !_gmltest_is_null(value));
+		}
+		
+		///@description Expects that the provided value is null
+		///@param {*} value
+		static expect_null = function(value) {
+			_gmltest_throw_result("null", value, _gmltest_is_null(value));
+		}
+		
+	#endregion
 	
 }
 

@@ -19,10 +19,10 @@ function MyFixture() : GMLTest_Harness() constructor {
 ///@description Fixture test showing basic usage
 test_f(MyFixture, "NotVisibleByDefault", function(){
 	/// The function has access to the variables declared in MyFixture
-	gmltest_expect_false(instance.visible);
+	GMUT.expect_false(instance.visible);
 });
 
 ///@description Disabled fixture test showing basic usage
 xtest_f(MyFixture, "NameIsBlankByDefault", function(){
-	gmltest_expect_eq("blank", instance.name);
+	GMUT.expect_eq("blank", instance.name);
 });
