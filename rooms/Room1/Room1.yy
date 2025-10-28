@@ -13,7 +13,7 @@
   "name":"Room1",
   "parent":{
     "name":"Supporting resources",
-    "path":"folders/Supporting resources.yy",
+    "path":"folders/Sample unit tests/Supporting resources.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

@@ -12,7 +12,7 @@
   "Folders":[
     {"$GMFolder":"","%Name":"GMUT","folderPath":"folders/GMUT.yy","name":"GMUT","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sample unit tests","folderPath":"folders/Sample unit tests.yy","name":"Sample unit tests","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Supporting resources","folderPath":"folders/Supporting resources.yy","name":"Supporting resources","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Supporting resources","folderPath":"folders/Sample unit tests/Supporting resources.yy","name":"Supporting resources","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "IncludedFiles":[],
   "isEcma":false,
