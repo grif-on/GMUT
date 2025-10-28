@@ -23,6 +23,6 @@ test_f(MyFixture, "NotVisibleByDefault", function(){
 });
 
 ///@description Disabled fixture test showing basic usage
-xtest_f(MyFixture, "NameIsHelloByDefault", function(){
-	gmltest_expect_eq("hello", instance.name);
+xtest_f(MyFixture, "NameIsBlankByDefault", function(){
+	gmltest_expect_eq("blank", instance.name);
 });
