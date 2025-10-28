@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "BasicSample",
+  "name": "GMUT",
   "resources": [
     {"id":{"name":"StandardTests","path":"scripts/StandardTests/StandardTests.yy",},"order":0,},
     {"id":{"name":"GMLTest_Matchers","path":"scripts/GMLTest_Matchers/GMLTest_Matchers.yy",},"order":2,},
