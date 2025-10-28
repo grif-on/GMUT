@@ -24,5 +24,5 @@ test_f(MyFixture, "NotVisibleByDefault", function(){
 
 ///@description Disabled fixture test showing basic usage
 xtest_f(MyFixture, "NameIsBlankByDefault", function(){
-	GMUT.expect_eq("blank", instance.name);
+	GMUT.expect_equal("blank", instance.name);
 });

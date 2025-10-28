@@ -27,53 +27,53 @@
 		///@description Expects that the actual value is equal to the expected value
 		///@param {*} expected
 		///@param {*} actual
-		static expect_eq = function(expected, actual) {
+		static expect_equal = function(expected, actual) {
 			_gmltest_throw_result(expected, actual, expected == actual);
+		}
+		
+		///@description Expects that the actual value is not equal to the expected value
+		///@param {*} expected
+		///@param {*} actual
+		static expect_not_equal = function(expected, actual) {
+			_gmltest_throw_result(expected, actual, expected != actual);
 		}
 		
 		///@description Expects that the provided value is false
 		///@param {*} value
 		static expect_false = function(value) {
-			GMUT.expect_eq(false, value);
+			GMUT.expect_equal(false, value);
 		}
 		
 		///@description Expects that the provided value is true
 		///@param {*} value
 		static expect_true = function(value) {
-			GMUT.expect_eq(true, value);
+			GMUT.expect_equal(true, value);
 		}
 		
 		///@description Expects that the actual value is greater than the expected value
 		///@param {*} expected
 		///@param {*} actual
-		static expect_gt = function(expected, actual) {
+		static expect_greater_than = function(expected, actual) {
 			_gmltest_throw_result(expected, actual, expected < actual);
 		}
 		
 		///@description Expects that the actual value is less than the expected value
 		///@param {*} expected
 		///@param {*} actual
-		static expect_lt = function(expected, actual) {
+		static expect_less_than = function(expected, actual) {
 			_gmltest_throw_result(expected, actual, expected > actual);
-		}
-		
-		///@description Expects that the actual value is not equal to the expected value
-		///@param {*} expected
-		///@param {*} actual
-		static expect_neq = function(expected, actual) {
-			_gmltest_throw_result(expected, actual, expected != actual);
-		}
-		
-		///@description Expects that the provided value is not null
-		///@param {*} value
-		static expect_not_null = function(value) {
-			_gmltest_throw_result("not null", value, !_gmltest_is_null(value));
 		}
 		
 		///@description Expects that the provided value is null
 		///@param {*} value
 		static expect_null = function(value) {
 			_gmltest_throw_result("null", value, _gmltest_is_null(value));
+		}
+		
+		///@description Expects that the provided value is not null
+		///@param {*} value
+		static expect_not_null = function(value) {
+			_gmltest_throw_result("not null", value, !_gmltest_is_null(value));
 		}
 		
 	#endregion

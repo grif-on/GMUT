@@ -9,5 +9,5 @@ test_p(GMLTest_Harness, "IsNumericTest", [1, 2, -1, 0], function(p){
 ///@description Disabled parameterized test showing basic usage
 ///             If this test was run this would cause a failure, but it won't because it is disabled
 xtest_p(GMLTest_Harness, "IsUndefinedTest",[undefined, noone, "blank"], function(p){
-	GMUT.expect_eq(undefined, p);
+	GMUT.expect_equal(undefined, p);
 });
