@@ -63,23 +63,11 @@ function GMUT() {
 			_gmltest_throw_result(expected, actual, expected > actual);
 		}
 		
-		///@description Expects that the provided value is null
-		///@param {*} value
-		static expect_null = function(value) {
-			_gmltest_throw_result("null", value, _gmltest_is_null(value));
-		}
-		
-		///@description Expects that the provided value is not null
-		///@param {*} value
-		static expect_not_null = function(value) {
-			_gmltest_throw_result("not null", value, !_gmltest_is_null(value));
-		}
-		
 	#endregion
 	
 	static public = {
 		run_tests, set_deterministic,
-		expect_equal, expect_not_equal, expect_false, expect_true, expect_greater_than, expect_less_than, expect_null, expect_not_null
+		expect_equal, expect_not_equal, expect_false, expect_true, expect_greater_than, expect_less_than
 		};
 	return public;
 	

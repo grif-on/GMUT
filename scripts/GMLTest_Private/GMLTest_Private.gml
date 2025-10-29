@@ -16,30 +16,6 @@ function _gmltest_throw_result(expected, actual, matches) {
 	}
 }
 
-#region Typechecking
-
-///@desc Checks if the provided value is an int or not
-///@param {*} value The value to check
-///@returns {Bool} True if int, false otherwise
-function _gmltest_is_int(value) {
-	if (is_undefined(value) || !is_numeric(value)){
-		return false;
-	}
-
-	var remainder = value % 1;
-	return remainder == 0;
-}
-
-///@desc Checks if the provided value is null or not
-///@param {*} value The value to check
-///@returns {Bool} True if null, false otherwise
-function _gmltest_is_null(value){
-	var result = is_undefined(value) || !_gmltest_is_int(value) || value == noone || value < 0 || !instance_exists(value);
-	return result;
-}
-
-#endregion
-
 #region Logging
 
 ///@description Logs the provided callstack to the console
