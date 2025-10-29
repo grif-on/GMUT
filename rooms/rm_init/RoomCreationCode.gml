@@ -1,1 +1,1 @@
-GMUT.run_tests();
+GMUT().run_tests();
