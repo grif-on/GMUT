@@ -1,4 +1,7 @@
- function GMUT() constructor {
+
+s(GMUT).set_deterministic(true);
+
+function GMUT() constructor {
 	
 	STATIC_CLASS
 	
