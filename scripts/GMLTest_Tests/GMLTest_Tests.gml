@@ -1,5 +1,5 @@
-///@description Base struct that all harnesses should extend from
-function GMLTest_Harness() constructor {
+///@description Base struct that all fixtures should extend from
+function DefaultFixture() constructor {
 	
 	///@description Called before the execution of the test.
 	///             Use this function to setup your fixtures and parameterized tests.
@@ -17,15 +17,15 @@ function GMLTest_Harness() constructor {
 ///@description Test struct used to hold the registered test data for later execution
 function _GMLTest_Test() constructor {
 	_name = "";
-	_harness = noone;
+	_fixture = noone;
 	_fn = noone;
 	_disabled = false;
 	_array = noone;
 	
 	function get_name(){
 		var result = "";
-		if (_harness != noone){
-			var temp = new _harness();
+		if (_fixture != noone){
+			var temp = new _fixture();
 			result = instanceof(temp) + "::";
 			delete temp;
 		}
@@ -54,42 +54,42 @@ function xtest(name, fn){
 	temp._disabled = true;
 }
 
-///@description Register a fixture test with a harness, name and a function to execute
-///@param {Struct} harness The struct to use as the harness when the test executes
+///@description Register a fixture test with a fixture, name and a function to execute
+///@param {Struct} fixture The struct to use as the fixture when the test executes
 ///@param {String} name The name of the test to be logged to the console
 ///@param {Function} fn The function to be executed
-function test_f(harness, name, fn){
+function test_f(fixture, name, fn){
 	var temp = test(name, fn);
-	temp._harness = harness;
+	temp._fixture = fixture;
 	return temp;
 }
 
-///@description Disable a registered fixture test that has a harness, name and a function to execute
-///@param {Struct} harness The struct to use as the harness when the test executes
+///@description Disable a registered fixture test that has a fixture, name and a function to execute
+///@param {Struct} fixture The struct to use as the fixture when the test executes
 ///@param {String} name The name of the test to be logged to the console
 ///@param {Function} fn The function to be executed
-function xtest_f(harness, name, fn){
-	var temp = test_f(harness, name, fn);
+function xtest_f(fixture, name, fn){
+	var temp = test_f(fixture, name, fn);
 	temp._disabled = true;
 }
 
-///@description Register a parameterized test with a harness, name, array of parameters, and a function to execute
-///@param {Struct} harness The struct to use as the harness when the test executes
+///@description Register a parameterized test with a fixture, name, array of parameters, and a function to execute
+///@param {Struct} fixture The struct to use as the fixture when the test executes
 ///@param {String} name The name of the test to be logged to the console
 ///@param {Array} array An array containing a list of parameters to be executed using the same provided function
 ///@param {Function} fn The function to be executed which takes one parameter
-function test_p(harness, name, array, fn) {
-	var temp = test_f(harness, name, fn);
+function test_p(fixture, name, array, fn) {
+	var temp = test_f(fixture, name, fn);
 	temp._array = array;
 	return temp;
 }
 
-///@description Disable a registered parameterized test that has a harness, name, array of parameters, and a function to execute
-///@param {Struct} harness The struct to use as the harness when the test executes
+///@description Disable a registered parameterized test that has a fixture, name, array of parameters, and a function to execute
+///@param {Struct} fixture The struct to use as the fixture when the test executes
 ///@param {String} name The name of the test to be logged to the console
 ///@param {Array} array An array containing a list of parameters to be executed using the same provided function
 ///@param {Function} fn The function to be executed which takes one parameter
-function xtest_p(harness, name, array, fn) {
-	var temp = test_p(harness, name, array, fn);
+function xtest_p(fixture, name, array, fn) {
+	var temp = test_p(fixture, name, array, fn);
 	temp._disabled = true;
 }

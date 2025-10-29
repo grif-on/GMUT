@@ -1,5 +1,5 @@
 ///@description A custom fixture that tests obj_book
-function MyFixture() : GMLTest_Harness() constructor {
+function MyFixture() : DefaultFixture() constructor {
 	
 	instance = noone;
 	

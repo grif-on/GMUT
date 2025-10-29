@@ -39,17 +39,17 @@ function GMLTest_Manager() constructor {
 		_gmltest_log_status("RUN", testName);
 		_testCount++;
 		
-		var harness = new test._harness();
-		harness.setup();
-		var fn = method(harness, test._fn);
+		var fixture = new test._fixture();
+		fixture.setup();
+		var fn = method(fixture, test._fn);
 		try {
 			fn();
 		} catch (e){
 			passed = false;
 			_handleException(e);
 		}
-		harness.tear_down();
-		delete harness;
+		fixture.tear_down();
+		delete fixture;
 		
 		var statusString = _get_status_string(passed);
 		_gmltest_log_status(statusString, testName);
@@ -64,17 +64,17 @@ function GMLTest_Manager() constructor {
 			_gmltest_log_status("RUN", testName);
 			_testCount++;
 			
-			var harness = new test._harness();
-			harness.setup();
-			var fn = method(harness, test._fn);
+			var fixture = new test._fixture();
+			fixture.setup();
+			var fn = method(fixture, test._fn);
 			try {
 				fn(test._array[i]);
 			} catch (e){
 				passed = false;
 				_handleException(e);
 			}
-			harness.tear_down();
-			delete harness;
+			fixture.tear_down();
+			delete fixture;
 				
 			var statusString = _get_status_string(passed);
 			_gmltest_log_status(statusString, testName);
@@ -101,7 +101,7 @@ function GMLTest_Manager() constructor {
 			return;
 		}
 		
-		if (test._harness == noone){
+		if (test._fixture == noone){
 			_run_test(test);
 		}else if (test._array == noone){
 			_run_fixture_test(test);
