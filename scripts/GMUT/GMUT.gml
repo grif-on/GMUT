@@ -9,9 +9,9 @@ function GMUT() {
 		}
 	
 		///@description Sets the seed to a static value or a random value. Can be toggled.
-		///@param {Bool} deterministic Whether to set the seed to a static value or not
-		static set_deterministic = function(deterministic) {
-			if (deterministic){
+		///@param {Bool} _deterministic Whether to set the seed to a static value or not
+		static set_deterministic = function(_deterministic) {
+			if (_deterministic){
 				random_set_seed(0);
 			}
 			else{
@@ -24,43 +24,43 @@ function GMUT() {
 	#region Matchers
 		
 		///@description Expects that the actual value is equal to the expected value
-		///@param {*} expected
-		///@param {*} actual
-		static expect_equal = function(expected, actual) {
-			_gmltest_throw_result(expected, actual, expected == actual);
+		///@param {*} _expected
+		///@param {*} _actual
+		static expect_equal = function(_expected, _actual) {
+			_gmltest_throw_result(_expected, _actual, _expected == _actual);
 		}
 		
 		///@description Expects that the actual value is not equal to the expected value
-		///@param {*} expected
-		///@param {*} actual
-		static expect_not_equal = function(expected, actual) {
-			_gmltest_throw_result(expected, actual, expected != actual);
+		///@param {*} _expected
+		///@param {*} _actual
+		static expect_not_equal = function(_expected, _actual) {
+			_gmltest_throw_result(_expected, _actual, _expected != _actual);
 		}
 		
 		///@description Expects that the provided value is true
-		///@param {*} value
-		static expect_true = function(value) {
-			GMUT().expect_equal(true, value);
+		///@param {*} _value
+		static expect_true = function(_value) {
+			GMUT().expect_equal(true, _value);
 		}
 		
 		///@description Expects that the provided value is false
-		///@param {*} value
-		static expect_false = function(value) {
-			GMUT().expect_equal(false, value);
+		///@param {*} _value
+		static expect_false = function(_value) {
+			GMUT().expect_equal(false, _value);
 		}
 		
 		///@description Expects that the actual value is greater than the expected value
-		///@param {*} expected
-		///@param {*} actual
-		static expect_greater_than = function(expected, actual) {
-			_gmltest_throw_result(expected, actual, expected < actual);
+		///@param {*} _expected
+		///@param {*} _actual
+		static expect_greater_than = function(_expected, _actual) {
+			_gmltest_throw_result(_expected, _actual, _expected < _actual);
 		}
 		
 		///@description Expects that the actual value is less than the expected value
-		///@param {*} expected
-		///@param {*} actual
-		static expect_less_than = function(expected, actual) {
-			_gmltest_throw_result(expected, actual, expected > actual);
+		///@param {*} _expected
+		///@param {*} _actual
+		static expect_less_than = function(_expected, _actual) {
+			_gmltest_throw_result(_expected, _actual, _expected > _actual);
 		}
 		
 	#endregion
