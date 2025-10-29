@@ -37,16 +37,16 @@ function GMUT() {
 			_gmltest_throw_result(expected, actual, expected != actual);
 		}
 		
-		///@description Expects that the provided value is false
-		///@param {*} value
-		static expect_false = function(value) {
-			GMUT.expect_equal(false, value);
-		}
-		
 		///@description Expects that the provided value is true
 		///@param {*} value
 		static expect_true = function(value) {
 			GMUT.expect_equal(true, value);
+		}
+		
+		///@description Expects that the provided value is false
+		///@param {*} value
+		static expect_false = function(value) {
+			GMUT.expect_equal(false, value);
 		}
 		
 		///@description Expects that the actual value is greater than the expected value
@@ -67,7 +67,7 @@ function GMUT() {
 	
 	static public = {
 		run_tests, set_deterministic,
-		expect_equal, expect_not_equal, expect_false, expect_true, expect_greater_than, expect_less_than
+		expect_equal, expect_not_equal, expect_true, expect_false, expect_greater_than, expect_less_than
 		};
 	return public;
 	
