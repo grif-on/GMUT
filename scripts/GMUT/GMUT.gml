@@ -1,7 +1,9 @@
 
-s(GMUT).set_deterministic(true);
+#macro GMUT { STATIC_CLASS_INIT(GMUTNamespace); } GMUTNamespace
 
-function GMUT() constructor {
+GMUT.set_deterministic(true);
+
+function GMUTNamespace() constructor {
 	
 	STATIC_CLASS
 	
@@ -83,11 +85,15 @@ function GMUT() constructor {
 	
 }
 
-STATIC_CLASS_INIT(GMUT);
-
 /*
 GMUT.run_tests();
 show_debug_message("next line should throw an error");
 var _test = new GMUT();
 _test.run_tests();
+*/
+
+/*
+var _test = new GMUT.Manager();
+_test._seed = 10;
+show_debug_message(_test._seed);
 */

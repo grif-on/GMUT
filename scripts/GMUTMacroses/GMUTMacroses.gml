@@ -5,3 +5,4 @@ function s(_class){
 	STATIC_CLASS_INIT(_class);
 	return static_get(_class);
 }
+
