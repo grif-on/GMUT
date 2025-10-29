@@ -12,25 +12,6 @@ function GMLTest_Manager() constructor {
 		return passed ? "PASSED" : "FAILED";
 	}
 	
-	///@description Run a standard test
-	///@param {Struct} test
-	_run_test = function (test){
-		var passed = true;
-		var testName = test.get_name();
-		_gmltest_log_status("RUN", testName);
-		_testCount++;
-		
-		try {
-			test._fn();
-		} catch (e){
-			passed = false;
-			_handleException(e);
-		}
-		
-		var statusString = _get_status_string(passed);
-		_gmltest_log_status(statusString, testName);
-	}
-	
 	///@description Run a fixture test
 	///@param {Struct} test
 	_run_fixture_test = function (test){
@@ -101,9 +82,7 @@ function GMLTest_Manager() constructor {
 			return;
 		}
 		
-		if (test._fixture == noone){
-			_run_test(test);
-		}else if (test._array == noone){
+		if (test._array == noone){
 			_run_fixture_test(test);
 		}
 		else {

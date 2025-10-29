@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"FixtureTests",
+  "%Name":"ExampleParameterizedTests",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"FixtureTests",
+  "name":"ExampleParameterizedTests",
   "parent":{
     "name":"Sample unit tests",
     "path":"folders/Sample unit tests.yy",

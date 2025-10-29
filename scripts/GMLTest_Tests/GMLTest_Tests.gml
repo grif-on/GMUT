@@ -34,33 +34,17 @@ function _GMLTest_Test() constructor {
 	}
 }
 
-///@description Register a basic test with a name and a function to execute
-///@param {String} name The name of the test to be logged to the console
-///@param {Function} fn The function to be executed
-function test(name, fn){	
-	_gmltest_create_manager();
-	var temp = new _GMLTest_Test();
-	temp._fn = fn;
-	temp._name = name;
-	global.GMLTestManager.add_test(temp);
-	return temp;
-}
-
-///@description Disable a registered basic test that has a name and a function to execute
-///@param {String} name The name of the test to be logged to the console
-///@param {Function} fn The function to be executed
-function xtest(name, fn){
-	var temp = test(name, fn);
-	temp._disabled = true;
-}
-
 ///@description Register a fixture test with a fixture, name and a function to execute
 ///@param {Struct} fixture The struct to use as the fixture when the test executes
 ///@param {String} name The name of the test to be logged to the console
 ///@param {Function} fn The function to be executed
 function test_f(fixture, name, fn){
-	var temp = test(name, fn);
+	_gmltest_create_manager();
+	var temp = new _GMLTest_Test();
+	temp._fn = fn;
+	temp._name = name;
 	temp._fixture = fixture;
+	global.GMLTestManager.add_test(temp);
 	return temp;
 }
 
