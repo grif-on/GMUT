@@ -1,7 +1,51 @@
-
+// Feather ignore once GM1030
 #macro GMUT { STATIC_CLASS_INIT(GMUTNamespace); } GMUTNamespace
 
 GMUT.set_deterministic(true);
+
+function tmut() {
+	
+	static private_variable = 42;
+	
+	static private_strings = [
+		"a",
+		"b",
+		"c"
+	];
+	
+	///@description Start running the unit tests
+	static run_tests = function() {
+		show_debug_message("==> " + string(tmut.private_variable) + tmut.private_strings[1]);
+		return true;
+	}
+	
+	///@description Sets the seed to a static value or a random value. Can be toggled.
+	///@param {Bool} deterministic Whether to set the seed to a static value or not
+	static set_deterministic = function(deterministic) {
+		if (deterministic){
+			random_set_seed(0);
+		}
+		else{
+			random_set_seed(global.GMLTestManager._seed);
+		}
+		return true;
+	}
+	
+	static export = { run_tests, set_deterministic };
+	return export;
+	
+}
+
+// show_debug_message(tmut.private_strings); // still illegal to access them before first call
+
+tmut().run_tests();
+
+show_debug_message(tmut.private_strings); // but at least now it is by design are not intended to be done, since private yare yare yare
+
+tmut().run_tests();
+
+
+
 
 function GMUTNamespace() constructor {
 	
@@ -12,6 +56,7 @@ function GMUTNamespace() constructor {
 		///@description Start running the unit tests
 		static run_tests = function() {
 			global.GMLTestManager.execute();
+			return 5;
 		}
 	
 		///@description Sets the seed to a static value or a random value. Can be toggled.
@@ -23,6 +68,7 @@ function GMUTNamespace() constructor {
 			else{
 				random_set_seed(global.GMLTestManager._seed);
 			}
+			return 5;
 		}
 		
 	#endregion
@@ -90,10 +136,4 @@ GMUT.run_tests();
 show_debug_message("next line should throw an error");
 var _test = new GMUT();
 _test.run_tests();
-*/
-
-/*
-var _test = new GMUT.Manager();
-_test._seed = 10;
-show_debug_message(_test._seed);
 */
