@@ -40,13 +40,13 @@ function GMUT() {
 		///@description Expects that the provided value is true
 		///@param {*} value
 		static expect_true = function(value) {
-			GMUT.expect_equal(true, value);
+			GMUT().expect_equal(true, value);
 		}
 		
 		///@description Expects that the provided value is false
 		///@param {*} value
 		static expect_false = function(value) {
-			GMUT.expect_equal(false, value);
+			GMUT().expect_equal(false, value);
 		}
 		
 		///@description Expects that the actual value is greater than the expected value
