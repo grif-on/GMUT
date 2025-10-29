@@ -126,11 +126,17 @@ function GMLTest_Manager() constructor {
 		
 		show_debug_message("-------------------------");
 		show_debug_message("RAN " + string(_testCount) + " TESTS IN " + string(timeToRun) + "MS.");
+		if (_failCount > 0){
+			show_debug_message("FAILED TESTS: " + string(_failCount));
+		}
+		else {
+			show_debug_message("ALL TESTS ARE PASSED.");
+		}
 		if (_disabledCount > 0){
 			show_debug_message("DISABLED TESTS: " + string(_disabledCount));
 		}
-		if (_failCount > 0){
-			show_debug_message("FAILED TESTS: " + string(_failCount));
+		else {
+			show_debug_message("NO DISABLED TESTS.");
 		}
 	}
 	
