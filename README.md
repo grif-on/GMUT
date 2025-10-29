@@ -4,17 +4,17 @@ GameMaker Unit Testing framework
 ## About fork
 This fork is refactored and improved version of [original gms2-test by pmarincak](https://github.com/pmarincak/gms2-test).
 
-You can read about my changes and reasons behind each and all of them [in respective chapter of README](#what-will-be-changed-in-this-fork).
+You can read about my changes and reasons behind each and all of them [in respective chapter of README](#what-will-be-changed-in-this-fork). But tl:dr of goals are - same framework workflow but powered by modern gml features.
 
-If you are interested in HOW unit tests frameworks are working then i'm hightly encourage you to check out the original original gms2-test before digging in to mine :)
+If you are interested in HOW unit tests frameworks are working then i'm hightly encourage you to check out the original gms2-test before digging in to mine :)
 
 ## Table of Contents
 
  1. [Requirements](#requirements)
- 2. [Download](#download)
+ 2. [Download & install](#download--install)
  3. [Maintainers & contribution](#maintainers--contribution)
  4. [API](#api)
-    - [GMUT "namespace"](#gmut-namespace)
+    - [Framework control](#framework-control)
     - [Matchers](#matchers)
     - [Test definitions](#test-definitions)
  5. [Unit testing resources](#unit-testing-resources)
@@ -28,9 +28,9 @@ Works on GameMaker IDE/Runtime versions :
 - v2024.13.1
 - and i guess anything newer in future
 
-## Download
+## Download & install
 
-Clone repo and generate .yymps file yourself. 
+Clone repo and generate .yymps file from everything that in "GMUT" project folder. 
 
 I don't have any intentions to make a release versions and/or exported .yymps files. Sorry.
 
@@ -40,65 +40,51 @@ Original author is [Paige Marincak](https://twitter.com/paigemarincak/). Current
 To contribute, please fork the repo and make pull requests.
 
 ## API
-### GMUT "namespace"
+### Framework control
 
-**!!!!! WIP !!!!!**
-
-#### gmltest_start
+#### GMUT().run_tests()
 Start running the unit tests
 
-#### gmltest_set_deterministic
+#### GMUT().set_deterministic(_deterministic)
 Sets the seed to a static value or a random value. Can be toggled.
 
-    @param {Bool} deterministic Whether to set the seed to a static value or not
+    @param {Bool} _deterministic Whether to set the seed to a static value or not
 
 ### Matchers
 
-**!!!!! WIP !!!!!**
-
-#### gmltest_expect_eq
+#### GMUT().expect_equal(_expected, _actual)
 Expects that the actual value is equal to the expected value
 
-    @param {*} expected
-    @param {*} actual
+    @param {*} _expected
+    @param {*} _actual
 
-#### gmltest_expect_false
-Expects that the provided value is false
-
-    @param {*} value
-
-#### gmltest_expect_true
-Expects that the provided value is true
-
-    @param {*} value
-
-#### gmltest_expect_gt
-Expects that the actual value is greater than the expected value
-
-       @param {*} expected
-       @param {*} actual
-
-#### gmltest_expect_lt
-Expects that the actual value is less than the expected value
-
-       @param {*} expected
-       @param {*} actual
-
-#### gmltest_expect_neq
+#### GMUT().expect_not_equal(_expected, _actual)
 Expects that the actual value is not equal to the expected value
 
-    @param {*} expected
-    @param {*} actual
+    @param {*} _expected
+    @param {*} _actual
 
-#### gmltest_expect_not_null
-Expects that the provided value is not null
+#### GMUT().expect_true(_value)
+Expects that the provided value is true
 
-    @param {*} value
+    @param {*} _value
 
-#### gmltest_expect_null
-Expects that the provided value is null
+#### GMUT().expect_false(_value)
+Expects that the provided value is false
 
-    @param {*} value
+    @param {*} _value
+
+#### GMUT().expect_greater_than(_expected, _actual)
+Expects that the actual value is greater than the expected value
+
+    @param {*} _expected
+    @param {*} _actual
+
+#### GMUT().expect_less_than(_expected, _actual)
+Expects that the actual value is less than the expected value
+
+    @param {*} _expected
+    @param {*} _actual
 
 ### Test definitions
 
@@ -163,28 +149,30 @@ The following are a list of resources that can assist you with writing your unit
 
 - [What is unit testing?](https://en.wikipedia.org/wiki/Unit_testing)
 - [What is a fixture?](https://en.wikipedia.org/wiki/Test_fixture)
-- [Beginner's guide to unit testing](https://www.codementor.io/@wbsimms/unit-testing-foundations-programming-beginners-du107q81d)
 
 ## What (will be) changed in this fork
 Note that this is a highlight of the the most important changes. For a full list of changes see the commits.
 - Renamed classes/functions
-    - A propper PascalCase for all of them
-        - GMLTest_Manager --> GMUTManager
-    - More understandable names
-        - GMLTest_Harness --> GMUTDefaultFixture
-    - Replaced disabling prefix "x" with draft suffix "_draft"
-        - .xtest() --> .test_draft()
+    - Propper PascalCase and more understandable names
+        - `GMLTest_Harness` --> `DefaultFixture`
+    - Replaced disabling prefix `x` with draft suffix `_draft`
+        - `xtest()` --> `GMUT().test_draft()`
 - Changing of architecture
-    - Replaced test()/test_f()/test_p() trio with one "overloaded" function .test()
+    - Replaced all global functions with methods in GMUT class/"namespace"
+        - `gmltest_start()` --> `GMUT().run_tests()`
+        - `gmltest_expect_eq()` --> `GMUT().expect_equal()`
+        - No more ugly functions with `_` prefix in global namespace
+    - Replaced `test()`/`test_f()`/`test_p()` trio with one "overloaded" function `GMUT().test()`
+        - Same goes for draft (disabled) functions
     - Now you always need a fixture to register a test
-        - But this alongside with overloading means that code now is much cleaner - e.g. DefaultFixture.test(name, fn, array), MyFixture.test(name, fn), MyAnotherFixture.test_draft(name, fn, array)
-    - Replaced all global functions with static methods in GMUT class/"namespace"
-        - gmltest_start() --> GMUT.run_tests()
-        - gmltest_expect_eq() --> GMUT.expect_equal()
+        - But this alongside with overloading means that code now are much more consistent between tests - e.g. `GMUT().test(DefaultFixture, name, fn, array)`, `GMUT().test(MyFixture, name, fn)`, `GMUT().test_draft(MyAnotherFixture, name, fn, array)` and etc.
+- General refactoring
+    - Removal of `expect_null()`/`expect_not_null()`
+        - since modern `instance_exists()` in pair with `GMUT().expect_true()`/`GMUT().expect_false()` achieve the same thing as horrible manual "null" check. GameMaker now have instance IDs typechecking under the hood!
 - More readable console output
     - Tests are now explicitly grouped by fixtures
 
 ### Why?
-There is two reasons - Stitch and Feather.
+There is two reasons - Feather and Stitch.
 
 Even though both tools still require a lot of fundamental work to be done by their creators... the age of shitty "classic gms2" gml intellisense is at dawn. So, most of these chages are intended to modernize gms2-test for "true OOP coding" era of gml, while still keeping simplicity which are the main selling point of this framework.
