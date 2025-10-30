@@ -14,34 +14,19 @@ function GMLTest_Manager() constructor {
 	
 	///@description Run a fixture test
 	///@param {Struct} test
-	_run_fixture_test = function (test){
-		var passed = true;
-		var testName = test.get_name();
-		_gmltest_log_status("RUN", testName);
-		_testCount++;
-		
-		var fixture = new test._fixture();
-		fixture.setup();
-		var fn = method(fixture, test._fn);
-		try {
-			fn();
-		} catch (e){
-			passed = false;
-			_handleException(e);
+	_run_test = function (test) {
+		var _parameterized = true;
+		var _call_count = 1;
+		if (test._array == noone) {
+			_parameterized = false;
 		}
-		fixture.tear_down();
-		delete fixture;
-		
-		var statusString = _get_status_string(passed);
-		_gmltest_log_status(statusString, testName);
-	}
-	
-	///@description Run a parameterized test
-	///@param {Struct} test
-	_run_parameter_test = function (test){
-		for (var i = 0; i < array_length(test._array); i++){
+		else {
+			_call_count = array_length(test._array);
+		}
+		for (var i = 0; i < _call_count; i++) {
 			var passed = true;
-			var testName = test.get_name() + "::" + string(i);
+			var _parameterized_suffix = _parameterized ? "::" + string(i) : "";
+			var testName = test.get_name() + _parameterized_suffix;
 			_gmltest_log_status("RUN", testName);
 			_testCount++;
 			
@@ -49,7 +34,12 @@ function GMLTest_Manager() constructor {
 			fixture.setup();
 			var fn = method(fixture, test._fn);
 			try {
-				fn(test._array[i]);
+				if (_parameterized) {
+					fn(test._array[i]);
+				}
+				else {
+					fn();
+				}
 			} catch (e){
 				passed = false;
 				_handleException(e);
@@ -82,12 +72,7 @@ function GMLTest_Manager() constructor {
 			return;
 		}
 		
-		if (test._array == noone){
-			_run_fixture_test(test);
-		}
-		else {
-			_run_parameter_test(test);
-		}
+		_run_test(test);
 	}
 	
 	///@description Execute all registered tests
