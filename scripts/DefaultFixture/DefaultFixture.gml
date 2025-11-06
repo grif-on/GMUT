@@ -12,26 +12,7 @@ function DefaultFixture() constructor {
 	function tear_down(){
 		// Override this function
 	}
-}
-
-///@description Test struct used to hold the registered test data for later execution
-function _GMLTest_Test() constructor {
-	_name = "";
-	_fixture = noone;
-	_fn = noone;
-	_disabled = false;
-	_array = noone;
 	
-	function get_name(){
-		var result = "";
-		if (_fixture != noone){
-			var temp = new _fixture();
-			result = instanceof(temp) + "::";
-			delete temp;
-		}
-		result += _name;
-		return result;
-	}
 }
 
 ///@description Register a fixture test with a fixture, name and a function to execute
@@ -40,7 +21,8 @@ function _GMLTest_Test() constructor {
 ///@param {Function} fn The function to be executed
 function test_f(fixture, name, fn){
 	_gmltest_create_manager();
-	var temp = new _GMLTest_Test();
+	GMUT(); // TODO - remove this dummy call when test() will be encapsulated into GMUT namespace
+	var temp = new GMUT.Test();
 	temp._fn = fn;
 	temp._name = name;
 	temp._fixture = fixture;

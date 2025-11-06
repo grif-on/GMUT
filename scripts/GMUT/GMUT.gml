@@ -65,10 +65,35 @@ function GMUT() {
 		
 	#endregion
 	
+	#region Tests representation
+	
+	// Feather ignore once GM2017
+	///@description Test struct used to hold the registered test data for later execution
+	static Test = function() constructor {
+		_name = "";
+		_fixture = noone;
+		_fn = noone;
+		_disabled = false;
+		_array = noone;
+		
+		function get_name(){
+			var result = "";
+			if (_fixture != noone){
+				var temp = new _fixture();
+				result = instanceof(temp) + "::";
+				delete temp;
+			}
+			result += _name;
+			return result;
+		}
+	}
+	
+	#endregion
+	
 	static public = {
 		run_tests, set_deterministic,
 		expect_equal, expect_not_equal, expect_true, expect_false, expect_greater_than, expect_less_than
-		};
+	};
 	return public;
 	
 }
