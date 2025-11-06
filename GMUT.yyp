@@ -24,11 +24,11 @@
   "resources":[
     {"id":{"name":"obj_book","path":"objects/obj_book/obj_book.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
+    {"id":{"name":"DefaultFixture","path":"scripts/DefaultFixture/DefaultFixture.yy",},},
     {"id":{"name":"ExampleParameterizedTests","path":"scripts/ExampleParameterizedTests/ExampleParameterizedTests.yy",},},
     {"id":{"name":"ExampleTests","path":"scripts/ExampleTests/ExampleTests.yy",},},
     {"id":{"name":"GMLTest_Manager","path":"scripts/GMLTest_Manager/GMLTest_Manager.yy",},},
     {"id":{"name":"GMLTest_Private","path":"scripts/GMLTest_Private/GMLTest_Private.yy",},},
-    {"id":{"name":"GMLTest_Tests","path":"scripts/GMLTest_Tests/GMLTest_Tests.yy",},},
     {"id":{"name":"GMUT","path":"scripts/GMUT/GMUT.yy",},},
   ],
   "resourceType":"GMProject",

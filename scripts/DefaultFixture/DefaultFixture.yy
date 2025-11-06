@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"GMLTest_Tests",
+  "%Name":"DefaultFixture",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"GMLTest_Tests",
+  "name":"DefaultFixture",
   "parent":{
     "name":"GMUT",
     "path":"folders/GMUT.yy",
