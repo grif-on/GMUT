@@ -124,11 +124,11 @@ Note that this is a highlight of the the most important changes. For a full list
         - `gmltest_start()` --> `GMUT().run_tests()`
         - `gmltest_expect_eq()` --> `GMUT().expect_equal()`
         - Finnaly no more "internal" globals and ugly functions with `_` in IDEs autocomplete
-    - Replaced `test()`/`test_f()`/`test_p()` trio with one "overloaded" function `GMUT().test()`
+    - Replaced `test()`/`test_f()`/`test_p()` trio with one unified function `GMUT().test()`
         - Same goes for draft (disabled) functions trio
     - Now you always need a fixture to register a test
-        - But this alongside with overloading means that code now are much more consistent between tests - e.g. `GMUT().test(DefaultFixture, name, fn, array)`, `GMUT().test(MyFixture, name, fn)`, `GMUT().test_draft(MyAnotherFixture, name, fn, array)` and etc.
-    - Draft tests are now runned as regular ones, but with the difference that their pass/failed statistics counted sepparately.
+        - But this alongside with unification means that code now are much more consistent between tests - e.g. `GMUT().test(DefaultFixture, name, fn, array)`, `GMUT().test(MyFixture, name, fn)`, `GMUT().test_draft(MyAnotherFixture, name, fn, array)` and etc.
+    - Draft tests are now runned as regular ones, but with the difference that their pass/fail statistics counted sepparately.
         - What the point of having custom way of completely disabling tests if you can do this with just `//`.
         - So instead "draft" tests now have more convinient ussage - they serve as playground for more smooth and feedback rich introduction of tests.
         - Wrote a draft class/function which "tommorow you" or your fellow programmer will implement in the future? Add a draft test that demonstrates how it should work, without interupting your CI/CD.

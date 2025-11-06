@@ -16,13 +16,13 @@ function MyFixture() : DefaultFixture() constructor {
 	
 }
 
-///@description Fixture test showing basic usage
-test_f(MyFixture, "NotVisibleByDefault", function(){
+// Fixture test showing basic usage
+GMUT().test(MyFixture, "NotVisibleByDefault", function() {
 	/// The function has access to the variables declared in MyFixture
 	GMUT().expect_false(instance.visible);
 });
 
-///@description Disabled fixture test showing basic usage
-xtest_f(MyFixture, "NameIsBlankByDefault", function(){
+// Disabled fixture test showing basic usage
+GMUT().test_draft(MyFixture, "NameIsBlankByDefault", function() {
 	GMUT().expect_equal("blank", instance.name);
 });

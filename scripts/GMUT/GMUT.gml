@@ -26,6 +26,45 @@ function GMUT() {
 		
 	#endregion
 	
+	#region Test declaration function
+		
+		///@description Register test with a fixture, name, and a function to execute.
+		///@description You can optionally provide an array with parameters.
+		///@param {Function.DefaultFixture} _fixture The struct to use as the fixture when the test executes
+		///@param {String} _name The name of the test to be logged to the console
+		///@param {Function} _tested_function The function to be executed
+		///@param {Array} _parameters_array Provided function will be executed once for each element of this array, receiving that element as its sole argument
+		static test = function(_fixture, _name, _tested_function, _parameters_array = []){
+			_gmltest_create_manager();
+			var _new_test = new GMUT.Test();
+			_new_test._fixture = _fixture;
+			_new_test._name = _name;
+			_new_test._fn = _tested_function;
+			_new_test._array = _parameters_array;
+			global.GMLTestManager.add_test(_new_test);
+		}
+		
+		///@description Register draft test with a fixture, name, and a function to execute.
+		///@description You can optionally provide an array with parameters.
+		///@description Draft tests serve as playground for more smooth introduction of tests.
+		///@description Their pass/fail statistics gathered sepparately of reggular test.
+		///@param {Function.DefaultFixture} _fixture The struct to use as the fixture when the test executes
+		///@param {String} _name The name of the test to be logged to the console
+		///@param {Function} _tested_function The function to be executed
+		///@param {Array} _parameters_array Provided function will be executed once for each element of this array, receiving that element as its sole argument
+		static test_draft = function(_fixture, _name, _tested_function, _parameters_array = []) {
+			_gmltest_create_manager();
+			var _new_test = new GMUT.Test();
+			_new_test._fixture = _fixture;
+			_new_test._name = _name;
+			_new_test._fn = _tested_function;
+			_new_test._array = _parameters_array;
+			_new_test._disabled = true;
+			global.GMLTestManager.add_test(_new_test);
+		}
+		
+	#endregion
+	
 	#region Matchers
 		
 		///@description Expects that the actual value is equal to the expected value
@@ -78,11 +117,11 @@ function GMUT() {
 	///@description Test struct used to hold the registered test data for later execution
 	static Test = function() constructor {
 		
-		_name = "";
 		_fixture = DefaultFixture;
+		_name = "";
 		_fn = noone;
-		_disabled = false;
 		_array = noone;
+		_disabled = false;
 		
 		function get_name(){
 			var result = "";
@@ -99,7 +138,8 @@ function GMUT() {
 	
 	static namespace_export = {
 		run_tests, set_deterministic,
-		expect_equal, expect_not_equal, expect_true, expect_false, expect_greater_than, expect_less_than
+		expect_equal, expect_not_equal, expect_true, expect_false, expect_greater_than, expect_less_than,
+		test, test_draft
 	};
 	return namespace_export;
 	

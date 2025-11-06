@@ -17,7 +17,7 @@ function GMLTest_Manager() constructor {
 	_run_test = function (test) {
 		var _parameterized = true;
 		var _call_count = 1;
-		if (test._array == noone) {
+		if (test._array == noone || (is_array(test._array) && array_length(test._array) == 0)) {
 			_parameterized = false;
 		}
 		else {
