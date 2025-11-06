@@ -77,22 +77,22 @@ function GMUT() {
 	// Feather ignore once GM2017
 	///@description Test struct used to hold the registered test data for later execution
 	static Test = function() constructor {
+		
 		_name = "";
-		_fixture = noone;
+		_fixture = DefaultFixture;
 		_fn = noone;
 		_disabled = false;
 		_array = noone;
 		
 		function get_name(){
 			var result = "";
-			if (_fixture != noone){
-				var temp = new _fixture();
-				result = instanceof(temp) + "::";
-				delete temp;
-			}
+			var temp = new _fixture();
+			result = instanceof(temp) + "::";
+			delete temp;
 			result += _name;
 			return result;
 		}
+		
 	}
 	
 	#endregion
