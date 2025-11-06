@@ -4,7 +4,7 @@ GameMaker Unit Testing framework
 ## About fork
 This fork is refactored and improved version of [original gms2-test by pmarincak](https://github.com/pmarincak/gms2-test).
 
-You can read about my changes and reasons behind each and all of them [in respective chapter of README](#what-will-be-changed-in-this-fork). But tl:dr of goals are - same framework workflow but powered by modern gml features.
+You can read about most of my changes and reasons behind each of them [in respective chapter of README](#what-will-be-changed-in-this-fork). But tl:dr are - same framework workflow but powered by modern gml features.
 
 If you are interested in HOW unit tests frameworks are working then i'm hightly encourage you to check out the original gms2-test before digging in to mine :)
 
@@ -30,7 +30,7 @@ Works on GameMaker IDE/Runtime versions :
 
 ## Download & install
 
-Clone repo and generate .yymps file from everything that in "GMUT" project folder. 
+Clone repo and generate .yymps file from everything that in "GMUT" project (IDE) folder. 
 
 I don't have any intentions to make a release versions and/or exported .yymps files. Sorry.
 
@@ -123,11 +123,16 @@ Note that this is a highlight of the the most important changes. For a full list
     - Replaced all global functions with methods in GMUT class/"namespace"
         - `gmltest_start()` --> `GMUT().run_tests()`
         - `gmltest_expect_eq()` --> `GMUT().expect_equal()`
-        - No more ugly functions with `_` prefix in global namespace
+        - Finnaly no more "internal" globals and ugly functions with `_` in IDEs autocomplete
     - Replaced `test()`/`test_f()`/`test_p()` trio with one "overloaded" function `GMUT().test()`
-        - Same goes for draft (disabled) functions
+        - Same goes for draft (disabled) functions trio
     - Now you always need a fixture to register a test
         - But this alongside with overloading means that code now are much more consistent between tests - e.g. `GMUT().test(DefaultFixture, name, fn, array)`, `GMUT().test(MyFixture, name, fn)`, `GMUT().test_draft(MyAnotherFixture, name, fn, array)` and etc.
+    - Draft tests are now runned as regular ones, but with the difference that their pass/failed statistics counted sepparately.
+        - What the point of having custom way of completely disabling tests if you can do this with just `//`.
+        - So instead "draft" tests now have more convinient ussage - they serve as playground for more smooth and feedback rich introduction of tests.
+        - Wrote a draft class/function which "tommorow you" or your fellow programmer will implement in the future? Add a draft test that demonstrates how it should work, without interupting your CI/CD.
+        - Don't forget that it is still a bad idea to pile up a lot of "wip" tests :)
 - General refactoring
     - Removal of `expect_null()`/`expect_not_null()`
         - since modern `instance_exists()` in pair with `GMUT().expect_true()`/`GMUT().expect_false()` achieve the same thing as horrible manual "null" check. GameMaker now have instance IDs typechecking under the hood!
@@ -135,6 +140,6 @@ Note that this is a highlight of the the most important changes. For a full list
     - Tests are now explicitly grouped by fixtures
 
 ### Why?
-There is two reasons - Feather and Stitch.
+There is two main reasons - Feather and Stitch.
 
-Even though both tools still require a lot of fundamental work to be done by their creators... the age of shitty "classic gms2" gml intellisense is at dawn. So, most of these chages are intended to modernize gms2-test for "true OOP coding" era of gml, while still keeping simplicity which are the main selling point of this framework.
+Even though both tools still require a lot of fundamental work to be done by their creators... the age of shitty "classic gml intellisense" is at dawn. So, most of these chages are intended to modernize gms2-test for "modern gml intellisense" era, while still keeping simplicity which are the main selling point of this framework.
