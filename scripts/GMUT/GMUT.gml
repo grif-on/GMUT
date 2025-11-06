@@ -1,5 +1,10 @@
 // Feather ignore once GM2017
+///@description This function returns "namespace" struct with all public functions in it.
+///@description All interactions with framework, except for definition of fixture constructors, should be done via "GMUT()." syntax.
+///@description Do not access anything via "GMUT." syntax unless you know what you are doing.
 function GMUT() {
+	
+	// Things below are public
 	
 	#region Framework control
 		
@@ -65,6 +70,8 @@ function GMUT() {
 		
 	#endregion
 	
+	// Things below are private
+	
 	#region Tests representation
 	
 	// Feather ignore once GM2017
@@ -90,10 +97,10 @@ function GMUT() {
 	
 	#endregion
 	
-	static public = {
+	static namespace_export = {
 		run_tests, set_deterministic,
 		expect_equal, expect_not_equal, expect_true, expect_false, expect_greater_than, expect_less_than
 	};
-	return public;
+	return namespace_export;
 	
 }
