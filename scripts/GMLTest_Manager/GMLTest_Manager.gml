@@ -80,6 +80,7 @@ function GMLTest_Manager() constructor {
 		var testCount = array_length(_tests);
 		var startTime = current_time;
 		
+		show_debug_message("===============================================================");
 		for (var i = 0; i < testCount; i++){
 			var test = _tests[i];
 			_execute_test(test);
@@ -88,7 +89,7 @@ function GMLTest_Manager() constructor {
 		var endTime = current_time;
 		var timeToRun = endTime - startTime;
 		
-		show_debug_message("-------------------------");
+		show_debug_message("===============================================================");
 		show_debug_message("RAN " + string(_testCount) + " TESTS IN " + string(timeToRun) + "MS.");
 		if (_failCount > 0){
 			show_debug_message("FAILED TESTS: " + string(_failCount));
@@ -102,6 +103,7 @@ function GMLTest_Manager() constructor {
 		else {
 			show_debug_message("NO DISABLED TESTS.");
 		}
+		show_debug_message("===============================================================");
 	}
 	
 	///@description Adds a test to this manager
