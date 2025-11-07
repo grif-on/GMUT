@@ -14,11 +14,11 @@ function _gmltest_throw_result(expected, actual, matches) {
 ///@description Logs the provided callstack to the console
 ///@param {Array} callstack
 function _gmltest_log_callstack(callstack) {
-	show_debug_message("Callstack:");
-	show_debug_message("-------------------------");
+	show_debug_message("------------------------ Callstack --------------------------");
 	for (var i = 0; i < array_length(callstack); i++){
 		show_debug_message(callstack[i]);
 	}
+	show_debug_message("---------------------------------------------------------------");
 }
 
 ///@description Logs the provided status for the given test name to the console
