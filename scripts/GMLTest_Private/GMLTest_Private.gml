@@ -1,10 +1,3 @@
-///@description Creates the GMLTestManager if it does not exist
-function _gmltest_create_manager() {
-	if (!variable_global_exists("GMLTestManager")){
-		global.GMLTestManager = new GMLTest_Manager();
-	}
-}
-
 ///@description Throws an exception if the provided values do not match
 ///@param {*} expected
 ///@param {*} actual

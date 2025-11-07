@@ -10,7 +10,7 @@ function GMUT() {
 		
 		///@description Start running the unit tests
 		static run_tests = function() {
-			global.GMLTestManager.execute();
+			GMUT.gml_test_manager.execute();
 		}
 	
 		///@description Sets the seed to a static value or a random value. Can be toggled.
@@ -20,7 +20,7 @@ function GMUT() {
 				random_set_seed(0);
 			}
 			else{
-				random_set_seed(global.GMLTestManager._seed);
+				random_set_seed(GMUT.gml_test_manager._seed);
 			}
 		}
 		
@@ -35,13 +35,12 @@ function GMUT() {
 		///@param {Function} _tested_function The function to be executed
 		///@param {Array} _parameters_array Provided function will be executed once for each element of this array, receiving that element as its sole argument
 		static test = function(_fixture, _name, _tested_function, _parameters_array = []){
-			_gmltest_create_manager();
 			var _new_test = new GMUT.Test();
 			_new_test._fixture = _fixture;
 			_new_test._name = _name;
 			_new_test._fn = _tested_function;
 			_new_test._array = _parameters_array;
-			global.GMLTestManager.add_test(_new_test);
+			GMUT.gml_test_manager.add_test(_new_test);
 		}
 		
 		///@description Register draft test with a fixture, name, and a function to execute.
@@ -53,14 +52,13 @@ function GMUT() {
 		///@param {Function} _tested_function The function to be executed
 		///@param {Array} _parameters_array Provided function will be executed once for each element of this array, receiving that element as its sole argument
 		static test_draft = function(_fixture, _name, _tested_function, _parameters_array = []) {
-			_gmltest_create_manager();
 			var _new_test = new GMUT.Test();
 			_new_test._fixture = _fixture;
 			_new_test._name = _name;
 			_new_test._fn = _tested_function;
 			_new_test._array = _parameters_array;
 			_new_test._disabled = true;
-			global.GMLTestManager.add_test(_new_test);
+			GMUT.gml_test_manager.add_test(_new_test);
 		}
 		
 	#endregion
@@ -133,6 +131,12 @@ function GMUT() {
 		}
 		
 	}
+	
+	#endregion
+	
+	#region Test manager
+	
+	static gml_test_manager = new GMLTest_Manager();
 	
 	#endregion
 	
