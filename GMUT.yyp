@@ -25,6 +25,7 @@
     {"id":{"name":"obj_book","path":"objects/obj_book/obj_book.yy",},},
     {"id":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
     {"id":{"name":"DefaultFixture","path":"scripts/DefaultFixture/DefaultFixture.yy",},},
+    {"id":{"name":"ExampleOfGMLMethodsTesting","path":"scripts/ExampleOfGMLMethodsTesting/ExampleOfGMLMethodsTesting.yy",},},
     {"id":{"name":"ExampleParameterizedTests","path":"scripts/ExampleParameterizedTests/ExampleParameterizedTests.yy",},},
     {"id":{"name":"ExampleTests","path":"scripts/ExampleTests/ExampleTests.yy",},},
     {"id":{"name":"GMLTest_Manager","path":"scripts/GMLTest_Manager/GMLTest_Manager.yy",},},
